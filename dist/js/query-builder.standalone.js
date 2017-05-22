@@ -7,6 +7,9 @@
     if (typeof define == 'function' && define.amd) {
         define('query-builder', ['jquery', 'dot/doT', 'jquery-extendext'], factory);
     }
+    else if (typeof module === 'object' && module.exports) {
+        module.exports = factory(require('jquery'), require('dot/doT'), require('jquery-extendext'));
+    }
     else {
         factory(root.jQuery, root.doT);
     }
@@ -5899,4 +5902,6 @@ QueryBuilder.regional['en'] = {
 };
 
 QueryBuilder.defaults({ lang_code: 'en' });
+return QueryBuilder;
+
 }));
